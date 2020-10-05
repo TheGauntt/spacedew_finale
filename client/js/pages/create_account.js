@@ -17,7 +17,9 @@ export default function() {
 
             page.alert('Success!', "Account created!");
             page.$container.hide();
-            $('#login').show();
+			
+			// TODO - this should probably be an actual React thing.
+			event_bus.emit('create_account.success', {});
         });
 
         page.$("#create_account_now").on('click', function() {

@@ -68,6 +68,12 @@ export class LoginComponent extends React.Component {
 			});
 		});
 
+		app.event_bus.on('create_account.success', data => {
+			this.setState({
+				creating_account: false
+			})
+		})
+
 		app.event_bus.on('login.login', data => {
 			if (!data.success) {
 				let status = '';
